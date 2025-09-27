@@ -1,0 +1,66 @@
+.graph-hit-count {
+	position: absolute;
+	top: 8px;
+	left: 12px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #ff2d2d;
+	z-index: 20;
+}
+/* Position the graph in the top right corner */
+.stress-graph-container {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	background: rgba(255,255,255,0.95);
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 8px;
+	z-index: 10;
+	width: 300px;
+	min-height: 200px;
+}
+
+.graph-question-block {
+	margin-top: 12px;
+	text-align: center;
+}
+.graph-question {
+	font-size: 15px;
+	font-weight: 500;
+	margin-bottom: 8px;
+	color: #000;
+}
+.graph-rating-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 2px;
+	margin-bottom: 2px;
+}
+.graph-rating-btn {
+	flex: 1 1 0;
+	padding: 4px 0;
+	font-size: 13px;
+	border: 1px solid #bbb;
+	border-radius: 6px;
+	background: #f7f7f7;
+	cursor: pointer;
+	transition: background 0.15s;
+	color: #000;
+}
+.graph-rating-btn:hover {
+	background: #e0eaff;
+}
+.graph-rating-emojis {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2px;
+	font-size: 18px;
+}
+.graph-emoji-left {
+	margin-left: 2px;
+}
+.graph-emoji-right {
+	margin-right: 2px;
+}
+
