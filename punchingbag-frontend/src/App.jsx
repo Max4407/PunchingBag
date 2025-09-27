@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import UserTextBox from './components/UserTextBox'
+<<<<<<< HEAD
 import StressTracker from './components/graph'
+=======
+import Bag from './components/Bag'
+>>>>>>> 069b55020c75da147951c12d45e16b8110a41dbe
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +19,7 @@ function App() {
           // Replace this with your real message handler later
           console.log('User sent:', msg)
         }} />
+        <Bag />
       </div>
     </>
   )
