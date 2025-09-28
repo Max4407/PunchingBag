@@ -10,7 +10,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [aiResponse, setAiResponse] = useState(null)
   const [messages, setMessages] = useState([])
-  const [cornerText, setCornerText] = useState('')
+  const [cornerText] = useState('')
 
   const handleSendMessage = async (message) => {
     try {
@@ -36,8 +36,6 @@ function App() {
           className="corner-input"
           placeholder="Welcome to Punchie: the number one stress relief companion on the market. Enter all your complaints and frustrations and Punchie will give you sage advice in return. If you are unsatisfied with the advice, click Punchie to knock him around and watch his condition worsen. Remember to enter your stress level periodically so you can watch it decrease in real time!" 
           value={cornerText}
-          onChange={(e) => setCornerText(e.target.value)}
-          aria-label="Corner textbox"
         />
       </div>
 

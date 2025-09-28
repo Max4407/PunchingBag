@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 const client = new OpenAI({
 
     apiKey: "..."
-
 })
 
 // Endpoint that react will call

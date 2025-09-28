@@ -111,7 +111,7 @@ body {
 .chatwindow {
   /* Make the chat window a left column with a fixed width so it contains AIResponse */
   padding-right: 150px;
-  padding-top: 190px;
+  padding-top: 165px;
   height: auto;
   width: 100%;
   box-sizing: border-box;
