@@ -32,10 +32,10 @@
 .stress-bar-container {
 	width: 100%;
 	height: 30px;
-	background-color: #f0f0f0;
+	background-color: rgba(240,240,240,0.35);
 	border-radius: 15px;
 	overflow: hidden;
-	border: 2px solid #ddd;
+	border: none;
 	position: relative;
 }
 
@@ -89,6 +89,13 @@
 	margin-bottom: 2px;
 }
 
+.graph-rating-row-wide {
+	width: 100%;
+	max-width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .graph-rating-btn {
 	flex: 1 1 0;
 	padding: 4px 0;
@@ -101,6 +108,17 @@
 	color: #000;
 }
 
+.graph-rating-btn-large {
+	padding: 4px 0;
+	font-size: 22px;
+}
+
+.graph-rating-btn-wide {
+	min-width: 28px;
+	width: 32px;
+	font-size: 22px;
+}
+
 .graph-rating-btn:hover {
 	background: #e0eaff;
 }
@@ -110,12 +128,7 @@
 	border-color: #ff2d2d;
 }
 
-.graph-rating-emojis {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 2px;
-	font-size: 18px;
-}
+/* .graph-rating-emojis no longer used */
 
 .graph-emoji-left {
 	margin-left: 2px;
