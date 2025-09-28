@@ -8,9 +8,9 @@ function StressTracker() {
 	// Get color based on stress level
 	const getStressColor = (level) => {
 		if (level === 0) return 'transparent'; // No color for 0
-		if (level <= 3) return '#ef4444'; // Green (calm)
+		if (level <= 3) return '#4ade80'; // Green (calm)
 		if (level <= 6) return '#fbbf24'; // Yellow (medium)
-		return '#4ade80'; // Red (stressed)
+		return '#ef4444'; // Red (stressed)
 	};
     
 
@@ -60,7 +60,7 @@ function StressTracker() {
 			<div style={{textAlign: 'center'}}>
 				<div className="graph-question" style={{marginBottom: 8, fontSize: 32, fontWeight: 700}}>How stressed are you?</div>
 				<div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start', maxWidth: 320, margin: '0 0 8px 0'}}>
-					<span className="graph-emoji-left" role="img" aria-label="sad" style={{fontSize: 32, marginRight: 8}}>😢</span>
+					<span className="graph-emoji-left" role="img" aria-label="smile" style={{fontSize: 32, marginRight: 8}}>😊</span>
 					<div className="graph-rating-row graph-rating-row-wide" style={{flex: 1}}>
 						{[...Array(10)].map((_, i) => (
 							<button
@@ -78,7 +78,7 @@ function StressTracker() {
 							</button>
 						))}
 					</div>
-					<span className="graph-emoji-right" role="img" aria-label="smile" style={{fontSize: 32, marginLeft: 8}}>😊</span>
+					<span className="graph-emoji-right" role="img" aria-label="sad" style={{fontSize: 32, marginLeft: 8}}>😢</span>
 				</div>
 			</div>
 		</div>
