@@ -1,70 +1,78 @@
 /* Styles for the UserTextBox component */
 .user-textbox-wrapper {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 12px;
+ 	align-items: center;
+ 	justify-content: center; /* keep centered container, input will expand */
+ 	padding: 12px;
 }
 
 .user-textbox-form {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	width: 100%;
-	max-width: 760px;
+ 	display: flex;
+ 	align-items: center;
+ 	gap: 8px;
+ 	width: 100%;
+ 	max-width: 400px; /* allow wider input */
 }
 
 .user-textbox-input {
-	flex: 1 1 auto;
-	resize: none; /* we'll auto-resize with JS */
-	padding: 12px 16px;
-	border-radius: 999px; /* pill */
-	border: 1px solid rgba(0,0,0,0.12);
-	background: #fff;
-	font-size: 14px;
-	line-height: 1.4;
-	color: #111;
-	outline: none;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-	transition: box-shadow 120ms ease, border-color 120ms ease;
-	min-height: 40px;
-	max-height: 160px;
-	overflow: auto;
+ 	flex: 1 1 auto;
+ 	/* fixed short height, no vertical scroll */
+ 	height: 36px;
+ 	min-height: 36px;
+ 	max-height: 36px;
+ 	overflow: hidden; /* hide overflow so it doesn't scroll */
+ 	resize: none;
+ 	padding: 8px 12px;
+ 	border-radius: 0; /* square corners */
+ 	border: 2px inset #9a9a9a; /* older inset look */
+ 	background: #f5f3e6; /* slightly aged paper color */
+ 	font-size: 14px;
+ 	line-height: 1.2;
+ 	color: #111;
+ 	outline: none;
+ 	box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+ 	transition: box-shadow 120ms ease, border-color 120ms ease;
+ 	font-family: "Courier New", monospace; /* older, typewriter feel */
 }
 
 .user-textbox-input::placeholder {
-	color: #9aa0a6;
+ 	color: #7a6f5f;
 }
 
 .user-textbox-input:focus {
-	border-color: #4c9aff;
-	box-shadow: 0 4px 12px rgba(76,154,255,0.12);
+	border-color: #000; /* changed from blue to black */
+	box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .user-textbox-send {
-	width: 44px;
-	height: 44px;
-	padding: 6px;
-	border-radius: 999px;
-	border: none;
-	background: linear-gradient(135deg,#4c9aff,#2b6df6);
-	color: white;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	box-shadow: 0 4px 12px rgba(43,109,246,0.18);
-	transition: transform 120ms ease, opacity 120ms ease;
+ 	width: 44px;
+ 	height: 36px; /* match input height to look cohesive */
+ 	padding: 6px 10px;
+ 	border-radius: 2px; /* square-ish */
+ 	border: 1px solid #6b6b6b;
+ 	background: #d9d6c8; /* older button fill */
+ 	color: #111;
+ 	display: inline-flex;
+ 	align-items: center;
+ 	justify-content: center;
+ 	cursor: pointer;
+ 	box-shadow: none;
+ 	transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
 }
 
 .user-textbox-send:disabled {
-	opacity: 0.5;
-	cursor: default;
-	transform: none;
+ 	opacity: 0.6;
+ 	cursor: default;
+ 	transform: none;
 }
 
 .user-textbox-send:not(:disabled):active {
-	transform: translateY(1px) scale(0.995);
+ 	transform: translateY(1px);
+}
+
+/* Override global button hover which used a blue border; use black for this component */
+.user-textbox-send:hover {
+	border-color: #000;
 }
 
 .user-textbox-send svg { 
@@ -72,8 +80,5 @@
 	color: white;
 }
 
-@media (max-width: 480px) {
-	.user-textbox-form { gap: 6px }
-	.user-textbox-send { width: 40px; height: 40px }
-}
+
 

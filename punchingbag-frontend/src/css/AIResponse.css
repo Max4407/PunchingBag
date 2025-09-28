@@ -1,0 +1,17 @@
+.ai-response {
+  max-width: 400px;
+  background: rgba(255,255,255,0.06);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-top: 12px;
+  text-align: left;
+}
+.ai-response h2 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+}
+.ai-response p {
+  margin: 0;
+  word-break: break-word;
+  white-space: pre-wrap;
+}

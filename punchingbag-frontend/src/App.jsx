@@ -30,15 +30,24 @@ function App() {
     <>
 
       <div style={{padding: 24}}>
-    
-        <Bag />
-        <h3>AI Message Analyzer</h3>
-        <div style={{padding: 24}}>
-          <UserTextBox onSend={handleSendMessage}/>
-          {aiResponse && <AIResponse response={aiResponse} />}
-        </div>
-        <StressTracker />
+        <div class="container">
+          <div>
+            <div class="chatwindow">
+              <AIResponse response={aiResponse} />
+            </div>
+          </div>
 
+          <div> 
+            <Bag/>
+            <h3>Enter Complaints</h3>
+            <UserTextBox onSend={handleSendMessage}/>
+          </div>
+
+          <div>
+           <StressTracker />
+          </div>
+        </div>
+        
       </div>
     </>
   )

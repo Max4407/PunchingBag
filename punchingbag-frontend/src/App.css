@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  display: flex;        /* enables flexbox */
+  flex-direction: row;  /* default, makes children line up horizontally */
+  gap: 10px;            /* optional: adds space between items */
+}
+
+.chatwindow {              /* allows chatwindow to grow and fill available space */
+  border: 1px solid #000000; /* optional: adds a border for visual separation */
+  padding: 10px;        /* optional: adds padding inside the chatwindow */
+  height: 400 px; 
+  width: 100 px;        /* sets a height for the chatwindow */
+  overflow-y: auto;     /* enables vertical scrolling if content overflows */
+}
