@@ -29,35 +29,26 @@ function App() {
   return (
     <>
 
-      
-
-        <div className="ai-area">
-          <div className="ai-bag-row">
-            <div className="ai-bubble" role="status" aria-live="polite">
-              <p className="ai-text">{aiResponse}</p>
-            </div>
-
-            <div className="bag-slot">
-              <Bag />
+      <div style={{padding: 24}}>
+        <div class="container">
+          <div>
+            <div class="chatwindow">
+              <AIResponse response={aiResponse} />
             </div>
           </div>
 
-          <div className="user-input-row">
-            <UserTextBox onSend={handleSendMessage} />
+          <div> 
+            <Bag/>
+            <h3>Enter Complaints</h3>
+            <UserTextBox onSend={handleSendMessage}/>
+          </div>
+
+          <div>
+           <StressTracker />
           </div>
         </div>
-
-        <StressTracker /> 
-    
         
-        {/* <h3>AI Message Analyzer</h3>
-        <Bag />
-        <div style={{padding: 24}}>
-          <UserTextBox onSend={handleSendMessage}/>
-          {aiResponse && <AIResponse response={aiResponse} />}
-        </div>
-        <StressTracker /> */}
-
+      </div>
     </>
   )
 }

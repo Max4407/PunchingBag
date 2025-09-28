@@ -7,13 +7,17 @@ import Stage2 from '../assets/Stage 2.png'
 import Stage3 from '../assets/Stage 3.png'
 import Stage4 from '../assets/Stage 4.png'
 import Dead from '../assets/Stage 5 Dead.png'
-//import Cursor from '../assets/Boxing_Glove_Cursor.png'
+import Hover0 from '../assets/Stage 0 Hover.png'
+import Hover1 from '../assets/Stage 1 Hover.png'
+import Hover2 from '../assets/Stage 2 Hover.png'
+import Hover3 from '../assets/Stage 3 Hover.png'
+import Hover4 from '../assets/Stage 4 Hover.png'
 
 const Bag = () => {
-	// clicked state toggles an alternate visual; hover is handled by CSS
-	const [imgSrc, setImgSrc] = useState(idle)
-    const [counter, setCounter] = useState(1);
-    const [stage, setStage] = useState(0);
+    const [useCustomCursor, toggleCustomCursor] = useState(false);
+    const [imgSrc, setImgSrc] = useState(idle)
+    const [counter, setCounter] = useState(1)
+    const [stage, setStage] = useState(0)
 
 	const handleClick = () => {
         setCounter(counter + 1);
@@ -23,34 +27,46 @@ const Bag = () => {
             setStage(stage + 1);
         }
         setTimeout(() => {
-                switch (stage) {
-                    case 0: setImgSrc(idle); break;
-                    case 1: setImgSrc(Stage1); break;
-                    case 2: setImgSrc(Stage2); break;
-                    case 3: setImgSrc(Stage3); break;
-                    case 4: setImgSrc(Stage4); break;
-                    case 5: setImgSrc(Dead); break;
-                    default: setImgSrc(Dead); break; 
-                }
+            updateImage();
         }, 500);
     }
 
-    const onMouseEnter = () => {
-        //style={{ cursor: `url(${cursor}), auto`, height: "100vh" }}
+    const updateImage = () => {
+        switch (stage) {
+            case 0: setImgSrc(idle); break;
+            case 1: setImgSrc(Stage1); break;
+            case 2: setImgSrc(Stage2); break;
+            case 3: setImgSrc(Stage3); break;
+            case 4: setImgSrc(Stage4); break;
+            case 5: setImgSrc(Dead); break;
+            default: setImgSrc(Dead); break; 
+        }
+    }
+
+    const hoverImage = () => {
+        switch (stage) {
+            case 0: setImgSrc(Hover0); break;
+            case 1: setImgSrc(Hover1); break;
+            case 2: setImgSrc(Hover2); break;
+            case 3: setImgSrc(Hover3); break;
+            case 4: setImgSrc(Hover4); break;
+            case 5: setImgSrc(Dead); break;
+            default: setImgSrc(Dead); break; 
+        }
     }
 
 	return (
-		<div className="bag-container">
+		<div>
 			<h2>Punching Bag</h2>
 			<div className="preview">
 				<img
 					src={imgSrc}
-					alt="Lebron"
+					alt="punching bag"
 					onClick={handleClick}
-                    //onMouseEnter = {}
-                    //onMouseLeave = {}
+                    onMouseEnter = {() => hoverImage()}
+                    onMouseLeave = {() => updateImage()}
 					role="button"
-					style={{ cursor: 'pointer', width: "200px"}}
+					style={{width: "350px"}}
 				/>
 			</div>
 		</div>
