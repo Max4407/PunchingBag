@@ -55,14 +55,13 @@
 }
 
 /* Hover and clicked visuals */
-.preview-img:hover {
-	transform: scale(1.03) rotate(-1deg);
-	box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-	transition: transform 160ms ease, box-shadow 160ms ease;
-	cursor: pointer;
+.bag-img:hover {
+  cursor: url('/Boxing_Glove_Cursor.png') 16 16, auto;
 }
 
 .preview-img.clicked {
 	transform: scale(0.96) rotate(6deg) saturate(1.15);
 	filter: drop-shadow(0 6px 18px rgba(0,0,0,0.18)) contrast(1.05);
 }
+
+
