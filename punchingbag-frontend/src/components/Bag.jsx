@@ -12,7 +12,6 @@ import Hover1 from '../assets/Stage 1 Hover.png'
 import Hover2 from '../assets/Stage 2 Hover.png'
 import Hover3 from '../assets/Stage 3 Hover.png'
 import Hover4 from '../assets/Stage 4 Hover.png'
-//import cursorImg from '../assets/Boxing_Glove_Cursor.png'
 
 const Bag = () => {
     const [useCustomCursor, toggleCustomCursor] = useState(false);
@@ -57,17 +56,17 @@ const Bag = () => {
     }
 
 	return (
-		<div className="bag-container">
+		<div>
 			<h2>Punching Bag</h2>
 			<div className="preview">
 				<img
 					src={imgSrc}
-					alt="Lebron"
+					alt="punching bag"
 					onClick={handleClick}
                     onMouseEnter = {() => hoverImage()}
                     onMouseLeave = {() => updateImage()}
 					role="button"
-					style={{cursor: 'url("../assets/Boxing_Glove_Cursor.png"),auto', width: "200px"}}
+					style={{width: "350px"}}
 				/>
 			</div>
 		</div>
