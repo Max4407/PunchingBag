@@ -1,17 +1,48 @@
 .ai-response {
-  max-width: 100%;
-  background: rgba(255,255,255,0.06);
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-top: 0;
+  display: inline-block;
+  max-width: clamp(220px, 86%, 360px);
+  background: #fff1d6;
+  padding: 14px 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06); /* match tail border */
+  margin: 8px 0;
   text-align: left;
+  position: relative; /* needed for tail */
+  z-index: 2; /* ensure bubble sits above the tail */
+  white-space: pre-wrap;
+  word-break: break-word;
 }
+
 .ai-response h2 {
   margin: 0 0 6px 0;
   font-size: 1rem;
 }
+
 .ai-response p {
   margin: 0;
-  word-break: break-word;
-  white-space: pre-wrap;
+}
+
+/* Diamond-style tail pointing to the right (towards center column) */
+.ai-response::after {
+  content: "";
+  position: absolute;
+  right: -8px; /* sit the tail very close to the bubble edge */
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 22px;
+  height: 22px;
+  background: inherit; /* matches bubble fill */
+  z-index: 0; /* put tail behind the bubble */
+}
+
+
+/* Small responsive tweak: on narrow screens hide the tail and make bubble full width */
+@media (max-width: 720px) {
+  .ai-response {
+    display: block;
+    width: calc(100% - 24px);
+    max-width: none;
+  }
+  .ai-response::after,
+  .ai-response::before { display: none; }
 }
