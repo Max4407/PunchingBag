@@ -32,16 +32,11 @@ function App() {
       <div style={{padding: 24}}>
     
         <Bag />
-        <h1>AI Message Analyzer</h1>
+        <h3>AI Message Analyzer</h3>
         <div style={{padding: 24}}>
           <UserTextBox onSend={handleSendMessage}/>
           {aiResponse && <AIResponse response={aiResponse} />}
         </div>
-        <UserTextBox onSend={(msg) => {
-          // simple smoke-test handler: log message and show an alert
-          // Replace this with your real message handler later
-          console.log('User sent:', msg)
-        }} />
         <StressTracker />
 
       </div>
