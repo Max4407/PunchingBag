@@ -13,7 +13,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const client = new OpenAI({
-    apiKey: "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",
+
+    apiKey: "..."
+
 })
 
 // Endpoint that react will call
