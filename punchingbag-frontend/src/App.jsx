@@ -29,22 +29,35 @@ function App() {
   return (
     <>
 
-      <div style={{padding: 24}}>
+      
+
+        <div className="ai-area">
+          <div className="ai-bag-row">
+            <div className="ai-bubble" role="status" aria-live="polite">
+              <p className="ai-text">{aiResponse}</p>
+            </div>
+
+            <div className="bag-slot">
+              <Bag />
+            </div>
+          </div>
+
+          <div className="user-input-row">
+            <UserTextBox onSend={handleSendMessage} />
+          </div>
+        </div>
+
+        <StressTracker /> 
     
+        
+        {/* <h3>AI Message Analyzer</h3>
         <Bag />
-        <h1>AI Message Analyzer</h1>
         <div style={{padding: 24}}>
           <UserTextBox onSend={handleSendMessage}/>
           {aiResponse && <AIResponse response={aiResponse} />}
         </div>
-        <UserTextBox onSend={(msg) => {
-          // simple smoke-test handler: log message and show an alert
-          // Replace this with your real message handler later
-          console.log('User sent:', msg)
-        }} />
-        <StressTracker />
+        <StressTracker /> */}
 
-      </div>
     </>
   )
 }
