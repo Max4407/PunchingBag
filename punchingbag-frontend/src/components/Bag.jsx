@@ -57,7 +57,6 @@ const Bag = () => {
 
 	return (
 		<div>
-			<h2>Punching Bag</h2>
 			<div className="preview">
 				<img
 					src={imgSrc}

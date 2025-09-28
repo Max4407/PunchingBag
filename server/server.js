@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 const client = new OpenAI({
 
-    apiKey: "..."
+    apiKey: "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"
 
 })
 

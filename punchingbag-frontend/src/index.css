@@ -34,7 +34,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh; /* full viewport height */
-  background-image: url('/background.png');
+  background-image: url('/punching_bag_background.png'); /* ensure correct path */
   background-size: cover;      /* scale to cover entire screen */
   background-repeat: no-repeat; /* don’t tile */
   background-position: center; /* keep it centered */
