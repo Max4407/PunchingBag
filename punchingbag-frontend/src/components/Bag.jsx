@@ -27,7 +27,7 @@ const Bag = () => {
             setStage(stage + 1);
         }
         setTimeout(() => {
-            updateImage();
+            hoverImage();
         }, 500);
     }
 
@@ -47,9 +47,9 @@ const Bag = () => {
         switch (stage) {
             case 0: setImgSrc(Hover0); break;
             case 1: setImgSrc(Hover1); break;
-            case 2: setImgSrc(Hover2); break;
-            case 3: setImgSrc(Hover3); break;
-            case 4: setImgSrc(Hover4); break;
+            case 2: setImgSrc(Stage2); break;
+            case 3: setImgSrc(Stage3); break;
+            case 4: setImgSrc(Stage4); break;
             case 5: setImgSrc(Dead); break;
             default: setImgSrc(Dead); break; 
         }

@@ -8,9 +8,10 @@
 
 
 .preview-img {
-	/* responsive size: min 72px, preferred 18vh (based on viewport height), max 220px */
-	width: clamp(72px, 18vh, 220px);
-	height: clamp(72px, 18vh, 220px);
+	/* responsive size: min 96px, preferred 12vw, max 220px */
+    padding-top: 0 px;
+	width: clamp(96px, 12vw, 220px);
+	height: clamp(96px, 12vw, 220px);
 	object-fit: contain;
 	border: 2px solid #000000;
 	border-radius: 0; /* square */
@@ -20,29 +21,10 @@
 .bag-container {
 	position: fixed;
 	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+    top: 0;                      /* flush to top */
 	z-index: 1000;
 	width: clamp(140px, 16vw, 260px); /* container scales with viewport */
 	pointer-events: auto; /* allow clicks */
-	max-height: 85vh; /* never exceed viewport height */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-/* On very short viewports, make the bag flow in the layout instead of fixed so it doesn't push content off-screen */
-@media (max-height: 600px) {
-	.bag-container {
-		position: static;
-		transform: none;
-		margin: 10px auto;
-		width: clamp(120px, 28vw, 200px);
-	}
-	.preview-img {
-		width: clamp(56px, 16vh, 160px);
-		height: clamp(56px, 16vh, 160px);
-	}
 }
 
 
