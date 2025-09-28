@@ -16,10 +16,13 @@
 .ai-response h2 {
   margin: 0 0 6px 0;
   font-size: 1rem;
+  font-family: "Courier New", monospace; /* older, typewriter feel */
+
 }
 
 .ai-response p {
   margin: 0;
+font-family: "Courier New", monospace; /* older, typewriter feel */
 }
 
 /* Diamond-style tail pointing to the right (towards center column) */

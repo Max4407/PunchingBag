@@ -4,12 +4,13 @@ import UserTextBox from './components/UserTextBox.jsx'
 import StressTracker from './components/graph.jsx'
 import AIResponse from "./components/AIResponse"
 import Bag from './components/Bag.jsx'
+import SubSurf from './assets/SubwaySurfers.gif'
 
 function App() {
   const [count, setCount] = useState(0)
   const [aiResponse, setAiResponse] = useState(null)
   const [messages, setMessages] = useState([])
-
+  const [cornerText, setCornerText] = useState('')
 
   const handleSendMessage = async (message) => {
     try {
@@ -28,18 +29,29 @@ function App() {
 
   return (
     <>
+      {/* lower-left fixed textbox */}
+      <div className="corner-textbox">
+        <img src={SubSurf} alt="subway surfers" style={{position: 'absolute', left: 60, top: -120, width: 128, height: 128, opacity: 0.8}} />
+        <textarea
+          className="corner-input"
+          placeholder="Welcome to Punchie: the number one stress relief companion on the market. Enter all your complaints and frustrations and Punchie will give you sage advice in return. If you are unsatisfied with the advice, click Punchie to knock him around and watch his condition worsen. Remember to enter your stress level periodically so you can watch it decrease in real time!" 
+          value={cornerText}
+          onChange={(e) => setCornerText(e.target.value)}
+          aria-label="Corner textbox"
+        />
+      </div>
 
       <div style={{padding: 24}}>
-        <div class="container">
+        <div className="container">
           <div>
-            <div class="chatwindow">
+            <div className="chatwindow">
               <AIResponse response={aiResponse} />
             </div>
           </div>
 
-          <div> 
+          <div className="bag-container">
             <Bag/>
-            <h3>Enter Complaints</h3>
+            <div className="whitetext">Enter Complaints Below</div>
             <UserTextBox onSend={handleSendMessage}/>
           </div>
 
@@ -47,7 +59,6 @@ function App() {
            <StressTracker />
           </div>
         </div>
-        
       </div>
     </>
   )

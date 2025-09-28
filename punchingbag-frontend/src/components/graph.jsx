@@ -3,7 +3,7 @@ import '../css/graph.css';
 
 function StressTracker() {
 	const [ratings, setRatings] = useState([]); // [{rating, timestamp}]
-	const maxBars = 10; // Maximum bars to show before removing the top one
+	const maxBars = 8; // Maximum bars to show before removing the top one
 
 	// Get color based on stress level
 	const getStressColor = (level) => {

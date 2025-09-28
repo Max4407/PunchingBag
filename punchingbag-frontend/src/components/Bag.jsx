@@ -9,9 +9,6 @@ import Stage4 from '../assets/Stage 4.png'
 import Dead from '../assets/Stage 5 Dead.png'
 import Hover0 from '../assets/Stage 0 Hover.png'
 import Hover1 from '../assets/Stage 1 Hover.png'
-import Hover2 from '../assets/Stage 2 Hover.png'
-import Hover3 from '../assets/Stage 3 Hover.png'
-import Hover4 from '../assets/Stage 4 Hover.png'
 
 const Bag = () => {
     const [useCustomCursor, toggleCustomCursor] = useState(false);
@@ -27,7 +24,7 @@ const Bag = () => {
             setStage(stage + 1);
         }
         setTimeout(() => {
-            hoverImage();
+            updateImage();
         }, 500);
     }
 

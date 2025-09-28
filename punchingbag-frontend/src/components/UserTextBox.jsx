@@ -57,7 +57,7 @@ function UserTextBox({ onSend = () => {} }) {
                 <textarea
                     ref={textareaRef}
                     className="user-textbox-input"
-                    placeholder="Type a message... (Enter to send, Shift+Enter for newline)"
+                    placeholder="Type a message... (Enter to send)"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     onKeyDown={handleKeyDown}
