@@ -23,12 +23,11 @@ function generateStressData(rating, hits) {
 }
 
 
-function StressTracker() {
+function StressTracker({ hits = 5 }) {
 	// State for user input
 	const [rating, setRating] = useState(5); // default: neutral
-	const [hits, setHits] = useState(5); // default: 5 hits
 
-	// Generate data based on user input
+	// Generate data based on user input and hits from props
 	const data = generateStressData(rating, hits);
 
 	// SVG graph dimensions
@@ -45,10 +44,10 @@ function StressTracker() {
 		return `${x},${y}`;
 	}).join(' ');
 
-	return (
-		<div className="stress-graph-container">
-			<div className="graph-hit-count">Hits: {hits}</div>
-			<svg width={width} height={height}>
+		return (
+			<div className="stress-graph-container">
+				<div className="graph-hit-count">Hits: {hits}</div>
+				<svg width={width} height={height}>
 				{/* Axes - solid black */}
 				<line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#000" strokeWidth="2" />
 				<line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#000" strokeWidth="2" />

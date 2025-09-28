@@ -6,18 +6,19 @@ import StressTracker from './components/graph'
 import Bag from './components/Bag'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [counter, setCounter] = useState(0);
+  const [totalHits, setTotalHits] = useState(0);
 
   return (
     <>
       <div style={{padding: 24}}>
-        <StressTracker />
+        <StressTracker hits={totalHits} />
         <UserTextBox onSend={(msg) => {
           // simple smoke-test handler: log message and show an alert
           // Replace this with your real message handler later
           console.log('User sent:', msg)
         }} />
-        <Bag />
+        <Bag counter={counter} setCounter={setCounter} totalHits={totalHits} setTotalHits={setTotalHits} />
       </div>
     </>
   )
