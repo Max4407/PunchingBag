@@ -21,9 +21,9 @@ function StressTracker() {
 	};
 
 	return (
-		<div className="stress-graph-container" style={{position: 'fixed', right: 24, bottom: 24, top: 'auto', width: 420}}>
+		<div className="stress-graph-container" style={{position: 'fixed', right: 24, bottom: 24, top: 'auto', width: 420, height: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
 			{/* Multiple Stress Bars (limit to maxBars) */}
-			<div style={{marginBottom: 32}}>
+			<div style={{flex: 1, overflowY: 'auto', marginBottom: 120}}>
 				{(ratings.slice(-maxBars)).map((entry, idx) => {
 					const fillPercentage = (entry.rating / 10) * 100;
 					const barColor = getStressColor(entry.rating);
@@ -56,8 +56,16 @@ function StressTracker() {
 				})}
 			</div>
 
-			{/* Input block below bars */}
-			<div style={{textAlign: 'center'}}>
+			{/* Input block fixed at bottom, left aligned, no background */}
+			<div style={{
+				position: 'absolute',
+				left: 0,
+				bottom: 0,
+				padding: '24px 0 16px 0',
+				textAlign: 'left',
+				borderRadius: '0 0 12px 12px',
+				width: '340px',
+			}}>
 				<div className="graph-question" style={{marginBottom: 8, fontSize: 32, fontWeight: 700}}>How stressed are you?</div>
 				<div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start', maxWidth: 320, margin: '0 0 8px 0'}}>
 					<span className="graph-emoji-left" role="img" aria-label="smile" style={{fontSize: 32, marginRight: 8}}>😊</span>
