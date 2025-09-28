@@ -41,16 +41,28 @@
   color: #888;
 }
 
+/* Layout: chat window on left, bag centered, right column on the right */
 .container {
-  display: flex;        /* enables flexbox */
-  flex-direction: row;  /* default, makes children line up horizontally */
-  gap: 10px;            /* optional: adds space between items */
+  display: grid;
+  grid-template-columns: 360px 1fr 320px; /* chat | center | right */
+  gap: 16px;
+  align-items: start;
 }
 
-.chatwindow {              /* allows chatwindow to grow and fill available space */
-  border: 1px solid #000000; /* optional: adds a border for visual separation */
-  padding: 10px;        /* optional: adds padding inside the chatwindow */
-  height: 400 px; 
-  width: 100 px;        /* sets a height for the chatwindow */
-  overflow-y: auto;     /* enables vertical scrolling if content overflows */
+/* center the second column content (Bag) */
+.container > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.chatwindow {
+  /* Make the chat window a left column with a fixed width so it contains AIResponse */
+  border: 1px solid #000000;
+  padding: 12px;
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
