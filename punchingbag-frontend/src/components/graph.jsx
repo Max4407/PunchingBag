@@ -21,14 +21,14 @@ function StressTracker() {
 	};
 
 	return (
-		<div className="stress-graph-container" style={{position: 'fixed', right: 24, bottom: 24, top: 'auto', width: 420, height: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+		<div className="stress-graph-container" style={{position: 'fixed', right: 24, bottom: 24, top: 'auto', width: 420, minHeight: 320, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
 			{/* Multiple Stress Bars (limit to maxBars) */}
-			<div style={{flex: 1, overflowY: 'auto', marginBottom: 120}}>
+			<div style={{marginBottom: 120}}>
 				{(ratings.slice(-maxBars)).map((entry, idx) => {
 					const fillPercentage = (entry.rating / 10) * 100;
 					const barColor = getStressColor(entry.rating);
 					return (
-						<div className="stress-bar-section" key={idx + ratings.length - Math.min(ratings.length, maxBars)} style={{display: 'flex', alignItems: 'center'}}>
+						<div className="stress-bar-section" key={idx + ratings.length - Math.min(ratings.length, maxBars)} style={{display: 'flex', alignItems: 'center', minHeight: 32}}>
 							<div style={{
 								width: 70,
 								textAlign: 'left',
@@ -37,7 +37,8 @@ function StressTracker() {
 								fontFamily: 'monospace',
 								fontWeight: 'bold',
 								textShadow: '0 1px 4px #000',
-								marginLeft: '-28px'
+								marginLeft: '-8px',
+								overflow: 'visible'
 							}}>
 								{formatMilitary(new Date(entry.timestamp))}
 							</div>
