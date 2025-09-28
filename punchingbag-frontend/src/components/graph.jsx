@@ -2,77 +2,66 @@ import React, { useState } from 'react';
 import '../css/graph.css';
 
 function StressTracker() {
-	const [rating, setRating] = useState(8);
-
-	// Calculate bar fill percentage (1 = 10%, 10 = 100%)
-	const fillPercentage = (rating / 10) * 100;
+	const [ratings, setRatings] = useState([]);
+	const maxBars = 6; // Maximum bars to show before removing the top one
 
 	// Get color based on stress level
 	const getStressColor = (level) => {
+		if (level === 0) return 'transparent'; // No color for 0
 		if (level <= 3) return '#4ade80'; // Green (calm)
 		if (level <= 6) return '#fbbf24'; // Yellow (medium)
 		return '#ef4444'; // Red (stressed)
 	};
 
-	const barColor = getStressColor(rating);
-
 	return (
 		<div className="stress-graph-container">
-			{/* Stress Level Display */}
-			<div className="stress-level-display">
-				Stress: {rating}/10
+			{/* Multiple Stress Bars (limit to maxBars) */}
+			<div style={{marginBottom: 32}}>
+				{(ratings.slice(-maxBars)).map((rating, idx) => {
+					const fillPercentage = (rating / 10) * 100;
+					const barColor = getStressColor(rating);
+					return (
+						<div className="stress-bar-section" key={idx + ratings.length - Math.min(ratings.length, maxBars)}>
+							<div className="stress-bar-container">
+								<div 
+									className="stress-bar-fill"
+									style={{
+										width: `${fillPercentage}%`,
+										backgroundColor: barColor
+									}}
+								></div>
+								{[...Array(9)].map((_, i) => (
+									<div 
+										key={i} 
+										className="stress-bar-marker"
+										style={{ left: `${((i + 1) * 10)}%` }}
+									></div>
+								))}
+							</div>
+						</div>
+					);
+				})}
 			</div>
 
-			{/* Stress Bar */}
-			<div className="stress-bar-section">
-				<div className="stress-bar-container">
-					{/* Fill bar */}
-					<div 
-						className="stress-bar-fill"
-						style={{
-							width: `${fillPercentage}%`,
-							backgroundColor: barColor
-						}}
-					></div>
-					
-					{/* Scale markers */}
-					{[...Array(9)].map((_, i) => (
-						<div 
-							key={i} 
-							className="stress-bar-marker"
-							style={{ left: `${((i + 1) * 10)}%` }}
-						></div>
-					))}
-				</div>
-
-				{/* Scale numbers */}
-				<div className="stress-bar-scale">
-					{[...Array(11)].map((_, i) => (
-						<span key={i} className="stress-scale-number">
-							{i}
-						</span>
-					))}
-				</div>
-			</div>
-
-			{/* Question and Rating Buttons */}
-			<div className="graph-question-block">
-				<div className="graph-question">
-					How are you?
-				</div>
-				
-				<div className="graph-rating-row">
+			{/* Input block below bars */}
+			<div style={{textAlign: 'center'}}>
+				<div className="graph-question" style={{marginBottom: 8}}>How are you?</div>
+				<div className="graph-rating-row" style={{marginBottom: 8}}>
 					{[...Array(10)].map((_, i) => (
 						<button
 							key={i}
-							className={`graph-rating-btn ${rating === i+1 ? 'selected' : ''}`}
-							onClick={() => setRating(i+1)}
+							className={`graph-rating-btn`}
+							onClick={() => {
+								setRatings(prev => {
+									const updated = [...prev, i+1];
+									return updated.length > maxBars ? updated.slice(-maxBars) : updated;
+								});
+							}}
 						>
 							{i+1}
 						</button>
 					))}
 				</div>
-				
 				<div className="graph-rating-emojis">
 					<span className="graph-emoji-left" role="img" aria-label="smile">😊</span>
 					<span className="graph-emoji-right" role="img" aria-label="sad">😢</span>
