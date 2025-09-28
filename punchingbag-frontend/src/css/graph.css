@@ -1,13 +1,4 @@
-.graph-hit-count {
-	position: absolute;
-	top: 8px;
-	left: 12px;
-	font-size: 18px;
-	font-weight: bold;
-	color: #ff2d2d;
-	z-index: 20;
-}
-/* Position the graph in the top right corner */
+/* Main container - positioned in top right corner */
 .stress-graph-container {
 	position: absolute;
 	top: 24px;
@@ -21,22 +12,83 @@
 	min-height: 200px;
 }
 
+/* Stress level display - shows current rating */
+.stress-level-display {
+	position: absolute;
+	top: 8px;
+	left: 12px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #ff2d2d;
+	z-index: 20;
+}
+
+/* Stress bar section - contains the visual bar */
+.stress-bar-section {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.stress-bar-container {
+	width: 100%;
+	height: 30px;
+	background-color: #f0f0f0;
+	border-radius: 15px;
+	overflow: hidden;
+	border: 2px solid #ddd;
+	position: relative;
+}
+
+.stress-bar-fill {
+	height: 100%;
+	transition: all 0.3s ease;
+	border-radius: 13px;
+}
+
+/* Scale markers - vertical lines on the bar */
+.stress-bar-marker {
+	position: absolute;
+	top: 0;
+	width: 1px;
+	height: 100%;
+	background-color: rgba(255,255,255,0.3);
+	z-index: 1;
+}
+
+/* Scale numbers below the bar */
+.stress-bar-scale {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 8px;
+	font-size: 12px;
+	color: #666;
+}
+
+.stress-scale-number {
+	width: 10%;
+	text-align: center;
+}
+
+/* Question and rating section */
 .graph-question-block {
 	margin-top: 12px;
 	text-align: center;
 }
+
 .graph-question {
 	font-size: 15px;
 	font-weight: 500;
 	margin-bottom: 8px;
 	color: #000;
 }
+
 .graph-rating-row {
 	display: flex;
 	justify-content: space-between;
 	gap: 2px;
 	margin-bottom: 2px;
 }
+
 .graph-rating-btn {
 	flex: 1 1 0;
 	padding: 4px 0;
@@ -48,19 +100,27 @@
 	transition: background 0.15s;
 	color: #000;
 }
+
 .graph-rating-btn:hover {
 	background: #e0eaff;
 }
+
+.graph-rating-btn.selected {
+	background: #ffd6d6;
+	border-color: #ff2d2d;
+}
+
 .graph-rating-emojis {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 2px;
 	font-size: 18px;
 }
+
 .graph-emoji-left {
 	margin-left: 2px;
 }
+
 .graph-emoji-right {
 	margin-right: 2px;
 }
-
