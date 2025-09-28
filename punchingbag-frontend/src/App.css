@@ -1,45 +1,105 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.ai-bag-row { position: relative; min-height: 60vh; }
+
+body {
+  display: flex;
+  justify-content: center;  /* centers main child horizontally */
+  align-items: flex-start;  /* keep top alignment */
+  min-height: 100vh;
+}
+/* center the bag in the viewport area */
+.bag-slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: auto;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* place bubble to the left of bag (absolute) */
+/* compact, wide speech bubble */
+.ai-bubble {
+  /* make bubble wider (either fixed or relative to viewport) */
+  width: 480px;           /* set the horizontal size you want */
+  max-width: 60vw;       /* responsive cap so it fits small screens */
+  min-width: 300px;      /* optional minimum width */
+
+  /* make bubble shorter by limiting vertical growth and letting it scroll */
+  max-height: 140px;     /* the bubble will not grow taller than this */
+  overflow-y: auto;      /* scroll inside bubble when content is longer */
+
+  /* compact look */
+  padding: 8px 12px;     /* smaller padding -> more compact */
+  font-size: 13px;       /* smaller type */
+  line-height: 1.35;
+  color: #111;
+
+  /* visuals */
+  background: linear-gradient(180deg,#fffefa,#fff1d6);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+
+  /* text wrapping & preserving AI newlines */
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  /* position so the tail can be placed to the right */
+  position: relative;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* speech tail pointing right (toward bag) */
+.ai-bubble::after {
+  content: "";
+  position: absolute;
+  right: -10px;            /* place the tail just outside right edge */
+  top: 50%;                /* align vertically to middle of bubble */
+  transform: translateY(-50%) rotate(45deg);
+  width: 18px;
+  height: 18px;
+  background: inherit;     /* inherits the bubble's background */
+  border-right: 1px solid rgba(0,0,0,0.04); /* small shadow/edge */
+  box-shadow: -2px 2px 6px rgba(0,0,0,0.04);
+  z-index: 1;
+  border-bottom: 1px solid rgba(0,0,0,0.02);
+}
+
+/* optional outline around tail (gives a border matching the bubble outline) */
+.ai-bubble::before {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid rgba(0,0,0,0.06);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* text inside bubble */
+.ai-bubble .ai-text {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* responsive tweak: on small screens use full width and smaller max-height */
+@media (max-width: 720px) {
+  .ai-bubble {
+    width: calc(100% - 40px); /* leave some breathing room */
+    min-width: auto;
+    max-height: 36vh;         /* taller on small screens if useful */
   }
-  to {
-    transform: rotate(360deg);
-  }
+  .ai-bubble::after,
+  .ai-bubble::before { display: none; } /* hide tail when stacked vertically */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 
 /* Layout: chat window on left, bag centered, right column on the right */
 .container {
